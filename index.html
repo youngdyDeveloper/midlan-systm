@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Midlan Health Center - Expense Management</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>MIDLAN HEALTH CENTER</h1>
+            <p>Cost Analysis System</p>
+        </div>
+        
+        <div class="nav-tabs">
+            <button class="nav-tab active" onclick="showTab('dashboard')">Dashboard</button>
+            <button class="nav-tab" onclick="showTab('administrative')">Administrative Expenses</button>
+            <button class="nav-tab" onclick="showTab('finance')">Finance Costs</button>
+            <button class="nav-tab" onclick="showTab('miscellaneous')">Miscellaneous Expenses</button>
+        </div>
+        
+        <div class="content">
+            <!-- Dashboard Tab -->
+            <div id="dashboard" class="tab-content active">
+                <div class="dashboard-summary">
+                    <h2 class="summary-title">Monthly Expense Summary</h2>
+                    <table class="summary-table">
+                        <thead>
+                            <tr>
+                                <th>Expense Category</th>
+                                <th>Jan</th>
+                                <th>Feb</th>
+                                <th>Mar</th>
+                                <th>Apr</th>
+                                <th>May</th>
+                                <th>Jun</th>
+                                <th>Jul</th>
+                                <th>Aug</th>
+                                <th>Sep</th>
+                                <th>Oct</th>
+                                <th>Nov</th>
+                                <th>Dec</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Administrative Expenses</td>
+                                <td><span id="dash-admin-jan">0</span></td>
+                                <td><span id="dash-admin-feb">0</span></td>
+                                <td><span id="dash-admin-mar">0</span></td>
+                                <td><span id="dash-admin-apr">0</span></td>
+                                <td><span id="dash-admin-may">0</span></td>
+                                <td><span id="dash-admin-jun">0</span></td>
+                                <td><span id="dash-admin-jul">0</span></td>
+                                <td><span id="dash-admin-aug">0</span></td>
+                                <td><span id="dash-admin-sep">0</span></td>
+                                <td><span id="dash-admin-oct">0</span></td>
+                                <td><span id="dash-admin-nov">0</span></td>
+                                <td><span id="dash-admin-dec">0</span></td>
+                                <td><span id="dash-admin-total">0</span></td>
+                            </tr>
+                            <tr>
+                                <td>Finance Costs</td>
+                                <td><span id="dash-finance-jan">0</span></td>
+                                <td><span id="dash-finance-feb">0</span></td>
+                                <td><span id="dash-finance-mar">0</span></td>
+                                <td><span id="dash-finance-apr">0</span></td>
+                                <td><span id="dash-finance-may">0</span></td>
+                                <td><span id="dash-finance-jun">0</span></td>
+                                <td><span id="dash-finance-jul">0</span></td>
+                                <td><span id="dash-finance-aug">0</span></td>
+                                <td><span id="dash-finance-sep">0</span></td>
+                                <td><span id="dash-finance-oct">0</span></td>
+                                <td><span id="dash-finance-nov">0</span></td>
+                                <td><span id="dash-finance-dec">0</span></td>
+                                <td><span id="dash-finance-total">0</span></td>
+                            </tr>
+                            <tr>
+                                <td>Miscellaneous Expenses</td>
+                                <td><span id="dash-misc-jan">0</span></td>
+                                <td><span id="dash-misc-feb">0</span></td>
+                                <td><span id="dash-misc-mar">0</span></td>
+                                <td><span id="dash-misc-apr">0</span></td>
+                                <td><span id="dash-misc-may">0</span></td>
+                                <td><span id="dash-misc-jun">0</span></td>
+                                <td><span id="dash-misc-jul">0</span></td>
+                                <td><span id="dash-misc-aug">0</span></td>
+                                <td><span id="dash-misc-sep">0</span></td>
+                                <td><span id="dash-misc-oct">0</span></td>
+                                <td><span id="dash-misc-nov">0</span></td>
+                                <td><span id="dash-misc-dec">0</span></td>
+                                <td><span id="dash-misc-total">0</span></td>
+                            </tr>
+                            <tr style="background: rgba(255, 255, 255, 0.2); font-weight: bold;">
+                                <td>GRAND TOTAL</td>
+                                <td><span id="dash-grand-jan">0</span></td>
+                                <td><span id="dash-grand-feb">0</span></td>
+                                <td><span id="dash-grand-mar">0</span></td>
+                                <td><span id="dash-grand-apr">0</span></td>
+                                <td><span id="dash-grand-may">0</span></td>
+                                <td><span id="dash-grand-jun">0</span></td>
+                                <td><span id="dash-grand-jul">0</span></td>
+                                <td><span id="dash-grand-aug">0</span></td>
+                                <td><span id="dash-grand-sep">0</span></td>
+                                <td><span id="dash-grand-oct">0</span></td>
+                                <td><span id="dash-grand-nov">0</span></td>
+                                <td><span id="dash-grand-dec">0</span></td>
+                                <td><span id="dash-grand-total">0</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- Administrative Expenses Tab -->
+            <div id="administrative" class="tab-content">
+                <div class="expense-section">
+                    <h2 class="section-title">Administrative Expenses - MIDLAN HEALTH CENTER</h2>
+                    <table class="expense-table">
+                        <thead>
+                            <tr>
+                                <th>S/N</th>
+                                <th>Expenses Description</th>
+                                <th>Jan</th>
+                                <th>Feb</th>
+                                <th>Mar</th>
+                                <th>Apr</th>
+                                <th>May</th>
+                                <th>Jun</th>
+                                <th>Jul</th>
+                                <th>Aug</th>
+                                <th>Sep</th>
+                                <th>Oct</th>
+                                <th>Nov</th>
+                                <th>Dec</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Miscellaneous Expenses</td>
+                                <td><input type="number" id="admin_misc_jan" onchange="calculateAdminTotals()" placeholder="0"></td>
+                                <td><input type="number" id="admin_misc_feb" onchange="calculateAdminTotals()" placeholder="0"></td>
+                                <td><input type="number" id="admin_misc_mar" onchange="calculateAdminTotals()" placeholder="0"></td>
+                                <td><input type="number" id="admin_misc_apr" onchange="calculateAdminTotals()" placeholder="0"></td>
+                                <td><input type="number" id="admin_misc_may" onchange="calculateAdminTotals()" placeholder="0"></td>
+                                <td><input type="number" id="admin_misc_jun" onchange="calculateAdminTotals()" placeholder="0"></td>
+                                <td><input type="number" id="admin_misc_jul" onchange="calculateAdminTotals()" placeholder="0"></td>
+                                <td><input type="number" id="admin_misc_aug" onchange="calculateAdminTotals()" placeholder="0"></td>
+                                <td><input type="number" id="admin_misc_sep" onchange="calculateAdminTotals()" placeholder="0"></td>
+                                <td><input type="number" id="admin_misc_oct" onchange="calculateAdminTotals()" placeholder="0"></td>
+                                <td><input type="number" id="admin_misc_nov" onchange="calculateAdminTotals()" placeholder="0"></td>
+                                <td><input type="number" id="admin_misc_dec" onchange="calculateAdminTotals()" placeholder="0"></td>
+                                <td class="total-cell"><span id="admin_misc_total">0</span></td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Regulatory Compliance</td>
+                                <td><input type="number" id="admin_reg_jan" onchange="calculateAdminTotals()" placeholder="0"></td>
+                                <td><input type="number" id="admin_reg_feb" onchange="calculateAdminTotals()" placeholder="0"></td>
+                                <td><input type="number" id="admin_reg_mar" onchange="calculateAdminTotals()" placeholder="0"></td>
+                                <td><input type="number" id="admin_reg_apr" onchange="calculateAdminTotals()" placeholder="0"></td>
+                                <td><input type="number" id="admin_reg_may" onchange="calculateAdminTotals()" placeholder="0"></td>
+                                <td><input type="number" id="admin_reg_jun" onchange="calculateAdminTotals()" placeholder="0"></td>
+                                <td><input type="number" id="admin_reg_jul" onchange="calculateAdminTotals()" placeholder="0"></td>
+                                <td><input type="number" id="admin_reg_aug" onchange="calculateAdminTotals()" placeholder="0"></td>
+                                <td><input type="number" id="admin_reg_sep" onchange="calculateAdminTotals()" placeholder="0"></td>
+                                <td><input type="number" id="admin_reg_oct" onchange="calculateAdminTotals()" placeholder="0"></td>
+                                <td><input type="number" id="admin_reg_nov" onchange="calculateAdminTotals()" placeholder="0"></td>
+                                <td><input type="number" id="admin_reg_dec" onchange="calculateAdminTotals()" placeholder="0"></td>
+                                <td class="total-cell"><span id="admin_reg_total">0</span></td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Personnel Expenses</td>
+                                <td><input type="number" id="admin_pers_jan" onchange="calculateAdminTotals()" placeholder="0"></td>
+                                <td><input type="number" id="admin_pers_feb" onchange="calculateAdminTotals()" placeholder="0"></td>
+                                <td><input type="number" id="admin_pers_mar" onchange="calculateAdminTotals()" placeholder="0"></td>
+                                <td><input type="number" id="admin_pers_apr" onchange="calculateAdminTotals()" placeholder="0"></td>
+                                <td><input type="number" id="admin_pers_may" onchange="calculateAdminTotals()" placeholder="0"></td>
+                                <td><input type="number" id="admin_pers_jun" onchange="calculateAdminTotals()" placeholder="0"></td>
+                                <td><input type="number" id="admin_pers_jul" onchange="calculateAdminTotals()" placeholder="0"></td>
+                                <td><input type="number" id="admin_pers_aug" onchange="calculateAdminTotals()" placeholder="0"></td>
+                                <td><input type="number" id="admin_pers_sep" onchange="calculateAdminTotals()" placeholder="0"></td>
+                                <td><input type="number" id="admin_pers_oct" onchange="calculateAdminTotals()" placeholder="0"></td>
+                                <td><input type="number" id="admin_pers_nov" onchange="calculateAdminTotals()" placeholder="0"></td>
+                                <td><input type="number" id="admin_pers_dec" onchange="calculateAdminTotals()" placeholder="0"></td>
+                                <td class="total-cell"><span id="admin_pers_total">0</span></td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Insurance</td>
+                                <td><input type="number" id="admin_ins_jan" onchange="calculateAdminTotals()" placeholder="0"></td>
+                                <td><input type="number" id="admin_ins_feb" onchange="calculateAdminTotals()" placeholder="0"></td>
+                                <td><input type="number" id="admin_ins_mar" onchange="calculateAdminTotals()" placeholder="0"></td>
+                                <td><input type="number" id="admin_ins_apr" onchange="calculateAdminTotals()" placeholder="0"></td>
+                                <td><input type="number" id="admin_ins_may" onchange="calculateAdminTotals()" placeholder="0"></td>
+                                <td><input type="number" id="admin_ins_jun" onchange="calculateAdminTotals()" placeholder="0"></td>
+                                <td><input type="number" id="admin_ins_jul" onchange="calculateAdminTotals()" placeholder="0"></td>
+                                <td><input type="number" id="admin_ins_aug" onchange="calculateAdminTotals()" placeholder="0"></td>
+                                <td><input type="number" id="admin_ins_sep" onchange="calculateAdminTotals()" placeholder="0"></td>
+                                <td><input type="number" id="admin_ins_oct" onchange="calculateAdminTotals()" placeholder="0"></td>
+                                <td><input type="number" id="admin_ins_nov" onchange="calculateAdminTotals()" placeholder="0"></td>
+                                <td><input type="number" id="admin_ins_dec" onchange="calculateAdminTotals()" placeholder="0"></td>
+                                <td class="total-cell"><span id="admin_ins_total">0</span></td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>Facility Expenses</td>
+                                <td><input type="number" id="admin_fac_jan" onchange="calculateAdminTotals()" placeholder="0"></td>
+                                <td><input type="number" id="admin_fac_feb" onchange="calculateAdminTotals()" placeholder="0"></td>
+                                <td><input type="number" id="admin_fac_mar" onchange="calculateAdminTotals()" placeholder="0"></td>
+                                <td><input type="number" id="admin_fac_apr" onchange="calculateAdminTotals()" placeholder="0"></td>
+                                <td><input type="number" id="admin_fac_may" onchange="calculateAdminTotals()" placeholder="0"></td>
+                                <td><input type="number" id="admin_fac_jun" onchange="calculateAdminTotals()" placeholder="0"></td>
+                                <td><input type="number" id="admin_fac_jul" onchange="calculateAdminTotals()" placeholder="0"></td>
+                                <td><input type="number" id="admin_fac_aug" onchange="calculateAdminTotals()" placeholder="0"></td>
+                                <td><input type="number" id="admin_fac_sep" onchange="calculateAdminTotals()" placeholder="0"></td>
+                                <td><input type="number" id="admin_fac_oct" onchange="calculateAdminTotals()" placeholder="0"></td>
+                                <td><input type="number" id="admin_fac_nov" onchange="calculateAdminTotals()" placeholder="0"></td>
+                                <td><input type="number" id="admin_fac_dec" onchange="calculateAdminTotals()" placeholder="0"></td>
+                                <td class="total-cell"><span id="admin_fac_total">0</span></td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td>Medical Supplies and Equipment</td>
+                                <td><input type="number" id="admin_med_jan" onchange="calculateAdminTotals()" placeholder="0"></td>
+                                <td><input type="number" id="admin_med_feb" onchange="calculateAdminTotals()" placeholder="0"></td>
+                                <td><input type="number" id="admin_med_mar" onchange="calculateAdminTotals()" placeholder="0"></td>
+                                <td><input type="number" id="admin_med_apr" onchange="calculateAdminTotals()" placeholder="0"></td>
+                                <td><input type="number" id="admin_med_may" onchange="calculateAdminTotals()" placeholder="0"></td>
+                                <td><input type="number" id="admin_med_jun" onchange="calculateAdminTotals()" placeholder="0"></td>
+                                <td><input type="number" id="admin_med_jul" onchange="calculateAdminTotals()" placeholder="0"></td>
+                                <td><input type="number" id="admin_med_aug" onchange="calculateAdminTotals()" placeholder="0"></td>
+                                <td><input type="number" id="admin_med_sep" onchange="calculateAdminTotals()" placeholder="0"></td>
+                                <td><input type="number" id="admin_med_oct" onchange="calculateAdminTotals()" placeholder="0"></td>
+                                <td><input type="number" id="admin_med_nov" onchange="calculateAdminTotals()" placeholder="0"></td>
+                                <td><input type="number" id="admin_med_dec" onchange="calculateAdminTotals()" placeholder="0"></td>
+                                <td class="total-cell"><span id="admin_med_total">0</span></td>
+                            </tr>
+                            <tr class="total-row">
+                                <td colspan="2"><strong>Total</strong></td>
+                                <td><span id="admin_total_jan">0</span></td>
+                                <td><span id="admin_total_feb">0</span></td>
+                                <td><span id="admin_total_mar">0</span></td>
+                                <td><span id="admin_total_apr">0</span></td>
+                                <td><span id="admin_total_may">0</span></td>
+                                <td><span id="admin_total_jun">0</span></td>
+                                <td><span id="admin_total_jul">0</span></td>
+                                <td><span id="admin_total_aug">0</span></td>
+                                <td><span id="admin_total_sep">0</span></td>
+                                <td><span id="admin_total_oct">0</span></td>
+                                <td><span id="admin_total_nov">0</span></td>
+                                <td><span id="admin_total_dec">0</span></td>
+                                <td><span id="admin_grand_total">0</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <button class="btn btn-success" onclick="saveData('administrative')">Save Administrative Expenses</button>
+                    <button class="btn" onclick="generateReport('administrative')">Generate Report</button>
+                </div>
+            </div>
+            
+            <!-- Finance Costs Tab -->
+            <div id="finance" class="tab-content">
+                <div class="expense-section">
+                    <h2 class="section-title">Finance Costs - MIDLAN HEALTH CENTER</h2>
+                    <table class="expense-table">
+                        <thead>
+                            <tr>
+                                <th>S/N</th>
+                                <th>Expenses Description</th>
+                                <th>Jan</th>
+                                <th>Feb</th>
+                                <th>Mar</th>
+                                <th>Apr</th>
+                                <th>May</th>
+                                <th>Jun</th>
+                                <th>Jul</th>
+                                <th>Aug</th>
+                                <th>Sep</th>
+                                <th>Oct</th>
+                                <th>Nov</th>
+                                <th>Dec</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Bank Charges</td>
+                                <td><input type="number" id="fin_bank_jan" onchange="calculateFinanceTotals()" placeholder="0"></td>
+                                <td><input type="number" id="fin_bank_feb" onchange="calculateFinanceTotals()" placeholder="0"></td>
+                                <td><input type="number" id="fin_bank_mar" onchange="calculateFinanceTotals()" placeholder="0"></td>
+                                <td><input type="number" id="fin_bank_apr" onchange="calculateFinanceTotals()" placeholder="0"></td>
+                                <td><input type="number" id="fin_bank_may" onchange="calculateFinanceTotals()" placeholder="0"></td>
+                                <td><input type="number" id="fin_bank_jun" onchange="calculateFinanceTotals()" placeholder="0"></td>
+                                <td><input type="number" id="fin_bank_jul" onchange="calculateFinanceTotals()" placeholder="0"></td>
+                                <td><input type="number" id="fin_bank_aug" onchange="calculateFinanceTotals()" placeholder="0"></td>
+                                <td><input type="number" id="fin_bank_sep" onchange="calculateFinanceTotals()" placeholder="0"></td>
+                                <td><input type="number" id="fin_bank_oct" onchange="calculateFinanceTotals()" placeholder="0"></td>
+                                <td><input type="number" id="fin_bank_nov" onchange="calculateFinanceTotals()" placeholder="0"></td>
+                                <td><input type="number" id="fin_bank_dec" onchange="calculateFinanceTotals()" placeholder="0"></td>
+                                <td class="total-cell"><span id="fin_bank_total">0</span></td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Loan Interest</td>
+                                <td><input type="number" id="fin_loan_jan" onchange="calculateFinanceTotals()" placeholder="0"></td>
+                                <td><input type="number" id="fin_loan_feb" onchange="calculateFinanceTotals()" placeholder="0"></td>
+                                <td><input type="number" id="fin_loan_mar" onchange="calculateFinanceTotals()" placeholder="0"></td>
+                                <td><input type="number" id="fin_loan_apr" onchange="calculateFinanceTotals()" placeholder="0"></td>
+                                <td><input type="number" id="fin_loan_may" onchange="calculateFinanceTotals()" placeholder="0"></td>
+                                <td><input type="number" id="fin_loan_jun" onchange="calculateFinanceTotals()" placeholder="0"></td>
+                                <td><input type="number" id="fin_loan_jul" onchange="calculateFinanceTotals()" placeholder="0"></td>
+                                <td><input type="number" id="fin_loan_aug" onchange="calculateFinanceTotals()" placeholder="0"></td>
+                                <td><input type="number" id="fin_loan_sep" onchange="calculateFinanceTotals()" placeholder="0"></td>
+                                <td><input type="number" id="fin_loan_oct" onchange="calculateFinanceTotals()" placeholder="0"></td>
+                                <td><input type="number" id="fin_loan_nov" onchange="calculateFinanceTotals()" placeholder="0"></td>
+                                <td><input type="number" id="fin_loan_dec" onchange="calculateFinanceTotals()" placeholder="0"></td>
+                                <td class="total-cell"><span id="fin_loan_total">0</span></td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Bond Interest</td>
+                                <td><input type="number" id="fin_bond_jan" onchange="calculateFinanceTotals()" placeholder="0"></td>
+                                <td><input type="number" id="fin_bond_feb" onchange="calculateFinanceTotals()" placeholder="0"></td>
+                                <td><input type="number" id="fin_bond_mar" onchange="calculateFinanceTotals()" placeholder="0"></td>
+                                <td><input type="number" id="fin_bond_apr" onchange="calculateFinanceTotals()" placeholder="0"></td>
+                                <td><input type="number" id="fin_bond_may" onchange="calculateFinanceTotals()" placeholder="0"></td>
+                                <td><input type="number" id="fin_bond_jun" onchange="calculateFinanceTotals()" placeholder="0"></td>
+                                <td><input type="number" id="fin_bond_jul" onchange="calculateFinanceTotals()" placeholder="0"></td>
+                                <td><input type="number" id="fin_bond_aug" onchange="calculateFinanceTotals()" placeholder="0"></td>
+                                <td><input type="number" id="fin_bond_sep" onchange="calculateFinanceTotals()" placeholder="0"></td>
+                                <td><input type="number" id="fin_bond_oct" onchange="calculateFinanceTotals()" placeholder="0"></td>
+                                <td><input type="number" id="fin_bond_nov" onchange="calculateFinanceTotals()" placeholder="0"></td>
+                                <td><input type="number" id="fin_bond_dec" onchange="calculateFinanceTotals()" placeholder="0"></td>
+                                <td class="total-cell"><span id="fin_bond_total">0</span></td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Currency Exchange Costs</td>
+                                <td><input type="number" id="fin_curr_jan" onchange="calculateFinanceTotals()" placeholder="0"></td>
+                                <td><input type="number" id="fin_curr_feb" onchange="calculateFinanceTotals()" placeholder="0"></td>
+                                <td><input type="number" id="fin_curr_mar" onchange="calculateFinanceTotals()" placeholder="0"></td>
+                                <td><input type="number" id="fin_curr_apr" onchange="calculateFinanceTotals()" placeholder="0"></td>
+                                <td><input type="number" id="fin_curr_may" onchange="calculateFinanceTotals()" placeholder="0"></td>
+                                <td><input type="number" id="fin_curr_jun" onchange="calculateFinanceTotals()" placeholder="0"></td>
+                                <td><input type="number" id="fin_curr_jul" onchange="calculateFinanceTotals()" placeholder="0"></td>
+                                <td><input type="number" id="fin_curr_aug" onchange="calculateFinanceTotals()" placeholder="0"></td>
+                                <td><input type="number" id="fin_curr_sep" onchange="calculateFinanceTotals()" placeholder="0"></td>
+                                <td><input type="number" id="fin_curr_oct" onchange="calculateFinanceTotals()" placeholder="0"></td>
+                                <td><input type="number" id="fin_curr_nov" onchange="calculateFinanceTotals()" placeholder="0"></td>
+                                <td><input type="number" id="fin_curr_dec" onchange="calculateFinanceTotals()" placeholder="0"></td>
+                                <td class="total-cell"><span id="fin_curr_total">0</span></td>
+                            </tr>
+                            <tr class="total-row">
+                                <td colspan="2"><strong>Total</strong></td>
+                                <td><span id="fin_total_jan">0</span></td>
+                                <td><span id="fin_total_feb">0</span></td>
+                                <td><span id="fin_total_mar">0</span></td>
+                                <td><span id="fin_total_apr">0</span></td>
+                                <td><span id="fin_total_may">0</span></td>
+                                <td><span id="fin_total_jun">0</span></td>
+                                <td><span id="fin_total_jul">0</span></td>
+                                <td><span id="fin_total_aug">0</span></td>
+                                <td><span id="fin_total_sep">0</span></td>
+                                <td><span id="fin_total_oct">0</span></td>
+                                <td><span id="fin_total_nov">0</span></td>
+                                <td><span id="fin_total_dec">0</span></td>
+                                <td><span id="fin_grand_total">0</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <button class="btn btn-success" onclick="saveData('finance')">Save Finance Costs</button>
+                    <button class="btn" onclick="generateReport('finance')">Generate Report</button>
+                </div>
+            </div>
+            
+            <!-- Miscellaneous Expenses Tab -->
+            <div id="miscellaneous" class="tab-content">
+                <div class="expense-section">
+                    <h2 class="section-title">Miscellaneous Expenses - MIDLAN HEALTH CENTER</h2>
+                    <table class="expense-table">
+                        <thead>
+                            <tr>
+                                <th>S/N</th>
+                                <th>Expenses Description</th>
+                                <th>Jan</th>
+                                <th>Feb</th>
+                                <th>Mar</th>
+                                <th>Apr</th>
+                                <th>May</th>
+                                <th>Jun</th>
+                                <th>Jul</th>
+                                <th>Aug</th>
+                                <th>Sep</th>
+                                <th>Oct</th>
+                                <th>Nov</th>
+                                <th>Dec</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Office Supplies</td>
+                                <td><input type="number" id="misc_office_jan" onchange="calculateMiscTotals()" placeholder="0"></td>
+                                <td><input type="number" id="misc_office_feb" onchange="calculateMiscTotals()" placeholder="0"></td>
+                                <td><input type="number" id="misc_office_mar" onchange="calculateMiscTotals()" placeholder="0"></td>
+                                <td><input type="number" id="misc_office_apr" onchange="calculateMiscTotals()" placeholder="0"></td>
+                                <td><input type="number" id="misc_office_may" onchange="calculateMiscTotals()" placeholder="0"></td>
+                                <td><input type="number" id="misc_office_jun" onchange="calculateMiscTotals()" placeholder="0"></td>
+                                <td><input type="number" id="misc_office_jul" onchange="calculateMiscTotals()" placeholder="0"></td>
+                                <td><input type="number" id="misc_office_aug" onchange="calculateMiscTotals()" placeholder="0"></td>
+                                <td><input type="number" id="misc_office_sep" onchange="calculateMiscTotals()" placeholder="0"></td>
+                                <td><input type="number" id="misc_office_oct" onchange="calculateMiscTotals()" placeholder="0"></td>
+                                <td><input type="number" id="misc_office_nov" onchange="calculateMiscTotals()" placeholder="0"></td>
+                                <td><input type="number" id="misc_office_dec" onchange="calculateMiscTotals()" placeholder="0"></td>
+                                <td class="total-cell"><span id="misc_office_total">0</span></td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Software Subscriptions</td>
+                                <td><input type="number" id="misc_soft_jan" onchange="calculateMiscTotals()" placeholder="0"></td>
+                                <td><input type="number" id="misc_soft_feb" onchange="calculateMiscTotals()" placeholder="0"></td>
+                                <td><input type="number" id="misc_soft_mar" onchange="calculateMiscTotals()" placeholder="0"></td>
+                                <td><input type="number" id="misc_soft_apr" onchange="calculateMiscTotals()" placeholder="0"></td>
+                                <td><input type="number" id="misc_soft_may" onchange="calculateMiscTotals()" placeholder="0"></td>
+                                <td><input type="number" id="misc_soft_jun" onchange="calculateMiscTotals()" placeholder="0"></td>
+                                <td><input type="number" id="misc_soft_jul" onchange="calculateMiscTotals()" placeholder="0"></td>
+                                <td><input type="number" id="misc_soft_aug" onchange="calculateMiscTotals()" placeholder="0"></td>
+                                <td><input type="number" id="misc_soft_sep" onchange="calculateMiscTotals()" placeholder="0"></td>
+                                <td><input type="number" id="misc_soft_oct" onchange="calculateMiscTotals()" placeholder="0"></td>
+                                <td><input type="number" id="misc_soft_nov" onchange="calculateMiscTotals()" placeholder="0"></td>
+                                <td><input type="number" id="misc_soft_dec" onchange="calculateMiscTotals()" placeholder="0"></td>
+                                <td class="total-cell"><span id="misc_soft_total">0</span></td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Marketing and Advertising</td>
+                                <td><input type="number" id="misc_mark_jan" onchange="calculateMiscTotals()" placeholder="0"></td>
+                                <td><input type="number" id="misc_mark_feb" onchange="calculateMiscTotals()" placeholder="0"></td>
+                                <td><input type="number" id="misc_mark_mar" onchange="calculateMiscTotals()" placeholder="0"></td>
+                                <td><input type="number" id="misc_mark_apr" onchange="calculateMiscTotals()" placeholder="0"></td>
+                                <td><input type="number" id="misc_mark_may" onchange="calculateMiscTotals()" placeholder="0"></td>
+                                <td><input type="number" id="misc_mark_jun" onchange="calculateMiscTotals()" placeholder="0"></td>
+                                <td><input type="number" id="misc_mark_jul" onchange="calculateMiscTotals()" placeholder="0"></td>
+                                <td><input type="number" id="misc_mark_aug" onchange="calculateMiscTotals()" placeholder="0"></td>
+                                <td><input type="number" id="misc_mark_sep" onchange="calculateMiscTotals()" placeholder="0"></td>
+                                <td><input type="number" id="misc_mark_oct" onchange="calculateMiscTotals()" placeholder="0"></td>
+                                <td><input type="number" id="misc_mark_nov" onchange="calculateMiscTotals()" placeholder="0"></td>
+                                <td><input type="number" id="misc_mark_dec" onchange="calculateMiscTotals()" placeholder="0"></td>
+                                <td class="total-cell"><span id="misc_mark_total">0</span></td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Waste Management</td>
+                                <td><input type="number" id="misc_waste_jan" onchange="calculateMiscTotals()" placeholder="0"></td>
+                                <td><input type="number" id="misc_waste_feb" onchange="calculateMiscTotals()" placeholder="0"></td>
+                                <td><input type="number" id="misc_waste_mar" onchange="calculateMiscTotals()" placeholder="0"></td>
+                                <td><input type="number" id="misc_waste_apr" onchange="calculateMiscTotals()" placeholder="0"></td>
+                                <td><input type="number" id="misc_waste_may" onchange="calculateMiscTotals()" placeholder="0"></td>
+                                <td><input type="number" id="misc_waste_jun" onchange="calculateMiscTotals()" placeholder="0"></td>
+                                <td><input type="number" id="misc_waste_jul" onchange="calculateMiscTotals()" placeholder="0"></td>
+                                <td><input type="number" id="misc_waste_aug" onchange="calculateMiscTotals()" placeholder="0"></td>
+                                <td><input type="number" id="misc_waste_sep" onchange="calculateMiscTotals()" placeholder="0"></td>
+                                <td><input type="number" id="misc_waste_oct" onchange="calculateMiscTotals()" placeholder="0"></td>
+                                <td><input type="number" id="misc_waste_nov" onchange="calculateMiscTotals()" placeholder="0"></td>
+                                <td><input type="number" id="misc_waste_dec" onchange="calculateMiscTotals()" placeholder="0"></td>
+                                <td class="total-cell"><span id="misc_waste_total">0</span></td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>Travel and Accommodation</td>
+                                <td><input type="number" id="misc_travel_jan" onchange="calculateMiscTotals()" placeholder="0"></td>
+                                <td><input type="number" id="misc_travel_feb" onchange="calculateMiscTotals()" placeholder="0"></td>
+                                <td><input type="number" id="misc_travel_mar" onchange="calculateMiscTotals()" placeholder="0"></td>
+                                <td><input type="number" id="misc_travel_apr" onchange="calculateMiscTotals()" placeholder="0"></td>
+                                <td><input type="number" id="misc_travel_may" onchange="calculateMiscTotals()" placeholder="0"></td>
+                                <td><input type="number" id="misc_travel_jun" onchange="calculateMiscTotals()" placeholder="0"></td>
+                                <td><input type="number" id="misc_travel_jul" onchange="calculateMiscTotals()" placeholder="0"></td>
+                                <td><input type="number" id="misc_travel_aug" onchange="calculateMiscTotals()" placeholder="0"></td>
+                                <td><input type="number" id="misc_travel_sep" onchange="calculateMiscTotals()" placeholder="0"></td>
+                                <td><input type="number" id="misc_travel_oct" onchange="calculateMiscTotals()" placeholder="0"></td>
+                                <td><input type="number" id="misc_travel_nov" onchange="calculateMiscTotals()" placeholder="0"></td>
+                                <td><input type="number" id="misc_travel_dec" onchange="calculateMiscTotals()" placeholder="0"></td>
+                                <td class="total-cell"><span id="misc_travel_total">0</span></td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td>Pharmacy Supplies</td>
+                                <td><input type="number" id="misc_pharm_jan" onchange="calculateMiscTotals()" placeholder="0"></td>
+                                <td><input type="number" id="misc_pharm_feb" onchange="calculateMiscTotals()" placeholder="0"></td>
+                                <td><input type="number" id="misc_pharm_mar" onchange="calculateMiscTotals()" placeholder="0"></td>
+                                <td><input type="number" id="misc_pharm_apr" onchange="calculateMiscTotals()" placeholder="0"></td>
+                                <td><input type="number" id="misc_pharm_may" onchange="calculateMiscTotals()" placeholder="0"></td>
+                                <td><input type="number" id="misc_pharm_jun" onchange="calculateMiscTotals()" placeholder="0"></td>
+                                <td><input type="number" id="misc_pharm_jul" onchange="calculateMiscTotals()" placeholder="0"></td>
+                                <td><input type="number" id="misc_pharm_aug" onchange="calculateMiscTotals()" placeholder="0"></td>
+                                <td><input type="number" id="misc_pharm_sep" onchange="calculateMiscTotals()" placeholder="0"></td>
+                                <td><input type="number" id="misc_pharm_oct" onchange="calculateMiscTotals()" placeholder="0"></td>
+                                <td><input type="number" id="misc_pharm_nov" onchange="calculateMiscTotals()" placeholder="0"></td>
+                                <td><input type="number" id="misc_pharm_dec" onchange="calculateMiscTotals()" placeholder="0"></td>
+                                <td class="total-cell"><span id="misc_pharm_total">0</span></td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td>Security Services</td>
+                                <td><input type="number" id="misc_sec_jan" onchange="calculateMiscTotals()" placeholder="0"></td>
+                                <td><input type="number" id="misc_sec_feb" onchange="calculateMiscTotals()" placeholder="0"></td>
+                                <td><input type="number" id="misc_sec_mar" onchange="calculateMiscTotals()" placeholder="0"></td>
+                                <td><input type="number" id="misc_sec_apr" onchange="calculateMiscTotals()" placeholder="0"></td>
+                                <td><input type="number" id="misc_sec_may" onchange="calculateMiscTotals()" placeholder="0"></td>
+                                <td><input type="number" id="misc_sec_jun" onchange="calculateMiscTotals()" placeholder="0"></td>
+                                <td><input type="number" id="misc_sec_jul" onchange="calculateMiscTotals()" placeholder="0"></td>
+                                <td><input type="number" id="misc_sec_aug" onchange="calculateMiscTotals()" placeholder="0"></td>
+                                <td><input type="number" id="misc_sec_sep" onchange="calculateMiscTotals()" placeholder="0"></td>
+                                <td><input type="number" id="misc_sec_oct" onchange="calculateMiscTotals()" placeholder="0"></td>
+                                <td><input type="number" id="misc_sec_nov" onchange="calculateMiscTotals()" placeholder="0"></td>
+                                <td><input type="number" id="misc_sec_dec" onchange="calculateMiscTotals()" placeholder="0"></td>
+                                <td class="total-cell"><span id="misc_sec_total">0</span></td>
+                            </tr>
+                            <tr class="total-row">
+                                <td colspan="2"><strong>Total</strong></td>
+                                <td><span id="misc_total_jan">0</span></td>
+                                <td><span id="misc_total_feb">0</span></td>
+                                <td><span id="misc_total_mar">0</span></td>
+                                <td><span id="misc_total_apr">0</span></td>
+                                <td><span id="misc_total_may">0</span></td>
+                                <td><span id="misc_total_jun">0</span></td>
+                                <td><span id="misc_total_jul">0</span></td>
+                                <td><span id="misc_total_aug">0</span></td>
+                                <td><span id="misc_total_sep">0</span></td>
+                                <td><span id="misc_total_oct">0</span></td>
+                                <td><span id="misc_total_nov">0</span></td>
+                                <td><span id="misc_total_dec">0</span></td>
+                                <td><span id="misc_grand_total">0</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <button class="btn btn-success" onclick="saveData('miscellaneous')">Save Miscellaneous Expenses</button>
+                    <button class="btn" onclick="generateReport('miscellaneous')">Generate Report</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function showTab(tabName) {
+            // Hide all tab contents
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Remove active class from all tabs
+            const tabs = document.querySelectorAll('.nav-tab');
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected tab content
+            document.getElementById(tabName).classList.add('active');
+            
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+        }
+        
+        function getValue(id) {
+            const element = document.getElementById(id);
+            return element ? (parseFloat(element.value) || 0) : 0;
+        }
+        
+        function setValue(id, value) {
+            const element = document.getElementById(id);
+            if (element) {
+                element.textContent = value.toLocaleString();
+            }
+        }
+        
+        function calculateAdminTotals() {
+            const months = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
+            const items = ['misc', 'reg', 'pers', 'ins', 'fac', 'med'];
+            
+            // Calculate row totals (each item's annual total)
+            items.forEach(item => {
+                let total = 0;
+                months.forEach(month => {
+                    total += getValue(`admin_${item}_${month}`);
+                });
+                setValue(`admin_${item}_total`, total);
+            });
+            
+            // Calculate column totals (each month's total)
+            let grandTotal = 0;
+            months.forEach(month => {
+                let monthTotal = 0;
+                items.forEach(item => {
+                    monthTotal += getValue(`admin_${item}_${month}`);
+                });
+                setValue(`admin_total_${month}`, monthTotal);
+                setValue(`dash_admin_${month}`, monthTotal);
+                grandTotal += monthTotal;
+            });
+            
+            setValue('admin_grand_total', grandTotal);
+            setValue('dash_admin_total', grandTotal);
+            updateGrandTotals();
+        }
+        
+        function calculateFinanceTotals() {
+            const months = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
+            const items = ['bank', 'loan', 'bond', 'curr'];
+            
+            // Calculate row totals
+            items.forEach(item => {
+                let total = 0;
+                months.forEach(month => {
+                    total += getValue(`fin_${item}_${month}`);
+                });
+                setValue(`fin_${item}_total`, total);
+            });
+            
+            // Calculate column totals
+            let grandTotal = 0;
+            months.forEach(month => {
+                let monthTotal = 0;
+                items.forEach(item => {
+                    monthTotal += getValue(`fin_${item}_${month}`);
+                });
+                setValue(`fin_total_${month}`, monthTotal);
+                setValue(`dash_finance_${month}`, monthTotal);
+                grandTotal += monthTotal;
+            });
+            
+            setValue('fin_grand_total', grandTotal);
+            setValue('dash_finance_total', grandTotal);
+            updateGrandTotals();
+        }
+        
+        function calculateMiscTotals() {
+            const months = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
+            const items = ['office', 'soft', 'mark', 'waste', 'travel', 'pharm', 'sec'];
+            
+            // Calculate row totals
+            items.forEach(item => {
+                let total = 0;
+                months.forEach(month => {
+                    total += getValue(`misc_${item}_${month}`);
+                });
+                setValue(`misc_${item}_total`, total);
+            });
+            
+            // Calculate column totals
+            let grandTotal = 0;
+            months.forEach(month => {
+                let monthTotal = 0;
+                items.forEach(item => {
+                    monthTotal += getValue(`misc_${item}_${month}`);
+                });
+                setValue(`misc_total_${month}`, monthTotal);
+                setValue(`dash_misc_${month}`, monthTotal);
+                grandTotal += monthTotal;
+            });
+            
+            setValue('misc_grand_total', grandTotal);
+            setValue('dash_misc_total', grandTotal);
+            updateGrandTotals();
+        }
+        
+        function updateGrandTotals() {
+            const months = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
+            
+            let overallGrandTotal = 0;
+            months.forEach(month => {
+                const adminValue = parseFloat(document.getElementById(`dash_admin_${month}`)?.textContent?.replace(/,/g, '') || 0);
+                const financeValue = parseFloat(document.getElementById(`dash_finance_${month}`)?.textContent?.replace(/,/g, '') || 0);
+                const miscValue = parseFloat(document.getElementById(`dash_misc_${month}`)?.textContent?.replace(/,/g, '') || 0);
+                
+                const monthGrandTotal = adminValue + financeValue + miscValue;
+                setValue(`dash_grand_${month}`, monthGrandTotal);
+                overallGrandTotal += monthGrandTotal;
+            });
+            
+            setValue('dash_grand_total', overallGrandTotal);
+        }
+        
+        function saveData(category) {
+            alert(`${category.charAt(0).toUpperCase() + category.slice(1)} expenses saved successfully!`);
+        }
+        
+        function generateReport(category) {
+            alert(`Generating ${category} expense report... Report will be ready in few seconds!`);
+        }
+        
+        // Add some sample data for demo
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(() => {
+                // Sample data for demonstration
+                document.getElementById('admin_misc_jan').value = '150000';
+                document.getElementById('admin_reg_jan').value = '85000';
+                document.getElementById('admin_pers_jan').value = '2500000';
+                
+                document.getElementById('fin_bank_jan').value = '25000';
+                document.getElementById('fin_loan_jan').value = '450000';
+                
+                document.getElementById('misc_office_jan').value = '120000';
+                document.getElementById('misc_soft_jan').value = '85000';
+                
+                calculateAdminTotals();
+                calculateFinanceTotals();
+                calculateMiscTotals();
+            }, 500);
+        });
+    </script>
+</body>
+</html>
